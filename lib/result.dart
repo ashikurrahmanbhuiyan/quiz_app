@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/question.dart';
 import 'ques_summery.dart';
+import 'package:google_fonts/google_fonts.dart';
 class Result extends StatelessWidget {
   const Result({required this.userAns, required this.restartButton, super.key});
 
@@ -35,13 +36,25 @@ class Result extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("You have ans $numCorrectQ out of $numTotalQ question correctly",
-              style: const TextStyle(color: Colors.white),
+            Text(
+            'You answered $numCorrectQ out of $numTotalQ questions correctly!',
+            style: GoogleFonts.lato(
+              color: const Color.fromARGB(255, 230, 200, 253),
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
             ),
+            textAlign: TextAlign.center,
+          ),
             const SizedBox(height: 30),
             QuesSummery(getSummery()),
-            const SizedBox(height: 30),
-            TextButton(onPressed: restartButton, child: const Text('Restart Quiz'))
+            const SizedBox(height: 50),
+            TextButton.icon(onPressed: restartButton, 
+            icon: const Icon(Icons.refresh),
+            label: const Text("Restart quiz",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 26,
+                  )))
         ]),
       ),
     );
