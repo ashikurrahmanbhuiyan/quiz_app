@@ -14,7 +14,7 @@ class Result extends StatelessWidget {
         summery.add({
           'question_index' : i,
           'question' : question[i].text,
-          'correct_ans' : question[i].answers[1],
+          'correct_ans' : question[i].answers[0],
           'user_ans': userAns[i]
         });
       }
